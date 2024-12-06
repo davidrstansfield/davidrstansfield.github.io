@@ -2,6 +2,7 @@ body {
     background: black;
     color: white;
     font-family: 'Arial', sans-serif;
+    overflow: hidden;
 }
 
 #name {
@@ -23,4 +24,46 @@ body {
     right: 5%;
 }
 
-/* Add some star magic here with CSS animations or JavaScript */
+/* Star animations */
+#stars, #stars2, #stars3 {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: 
+        1px 1px #fff,
+        2px 2px #fff,
+        3px 3px #fff,
+        /* Add more stars by duplicating this line with different offsets */
+        200px 200px #fff;
+    animation: animStar 50s linear infinite;
+}
+
+#stars2 {
+    animation-delay: -5s;
+    animation-duration: 35s;
+}
+
+#stars3 {
+    animation-delay: -10s;
+    animation-duration: 45s;
+}
+
+@keyframes animStar {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-1000px);
+    }
+}
+
+/* Position stars to cover the entire viewport */
+#stars, #stars2, #stars3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+}
